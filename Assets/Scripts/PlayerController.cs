@@ -50,4 +50,5 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, -angle + 120, 0)); // rotate to the mouse
         }
     }
+
 }
