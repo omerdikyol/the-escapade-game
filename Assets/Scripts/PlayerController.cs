@@ -14,53 +14,61 @@ public class PlayerController : MonoBehaviour
     // Animation
     private Animator animator;
     [SerializeField] private Vector3 moveDirection;
+    private Rigidbody rb;
+    [SerializeField] private bool isInteracting; 
  
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+        isInteracting = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Movement of the player ( only forward )
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(Vector3.forward * _speed * Time.deltaTime);
-            transform.position += new Vector3(0.0001f, 0f, 0f);
-        }
-        else if (Input.GetKeyUp(KeyCode.W))
-        {
-            transform.position -= new Vector3(0.00001f, 0f, 0f);
-        }
 
-        // Jump
-        /*
-        if ( Input.GetKeyDown(KeyCode.Space) )
+        if (!isInteracting)
         {
-            _rb.AddForce(Vector3.up * _jumpForce);
-        }
-        */
+            // Movement of the player ( only forward )
+            if (Input.GetKey(KeyCode.W))
+            {
+                transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+                transform.position += new Vector3(0.0001f, 0f, 0f);
+            }
+            else if (Input.GetKeyUp(KeyCode.W))
+            {
+                transform.position -= new Vector3(0.00001f, 0f, 0f);
+            }
 
-        // Rotation
-        Vector3 mousePos = Input.mousePosition;
-        mousePos.z = 0;
-        Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
+            // Jump
+            /*
+            if ( Input.GetKeyDown(KeyCode.Space) )
+            {
+                _rb.AddForce(Vector3.up * _jumpForce);
+            }
+            */
 
-        mousePos.x = mousePos.x - objectPos.x;
-        mousePos.y = mousePos.y - objectPos.y;
+            // Rotation
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 0;
+            Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
 
-        float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
-        if (Input.GetMouseButton(1)) // if right click is holding
-        {
-            transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + 120, 0)); // rotate to the mouse
+            mousePos.x = mousePos.x - objectPos.x;
+            mousePos.y = mousePos.y - objectPos.y;
+
+            float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            if (Input.GetMouseButton(1)) // if right click is holding
+            {
+                transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + 120, 0)); // rotate to the mouse
+            }
         }
 
         // Animation
         moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if(moveDirection == Vector3.zero) // Idle
+        if (moveDirection == Vector3.zero) // Idle
         {
             animator.SetFloat("Speed", 0);
         }
@@ -69,6 +77,21 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("Speed", 1);
         }
 
+
+    }
+
+    public void Interact()
+    {
+        animator.SetTrigger("Interact");
+        isInteracting = true;
+        StartCoroutine(BacktoIdle());
+    }
+
+    IEnumerator BacktoIdle()
+    {
+        yield return new WaitForSeconds(1f);
+        animator.ResetTrigger("Interact");
+        isInteracting = false;
     }
 
 }

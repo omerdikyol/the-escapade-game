@@ -71,9 +71,9 @@ public class Interactable : MonoBehaviour
 
     IEnumerator Wait()
     {
-        // put 3 seconds delay between interacts to avoid spam.
+        // put 2 seconds delay between interacts to avoid spam.
         onWaiting = true;
-        yield return new WaitForSeconds(3); //Wait 3 second
+        yield return new WaitForSeconds(2); //Wait 2 second
         onWaiting = false;
     }
 }

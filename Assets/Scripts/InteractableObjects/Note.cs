@@ -5,18 +5,18 @@ using UnityEngine;
 
 public class Note : MonoBehaviour
 {
-    [SerializeField] private GameObject prefab;
+    [SerializeField] private GameObject noteUIPrefab;
     private GameObject noteUI;
-    [SerializeField] private GameObject interactCircle;
     private TMP_Text m_TextComponent;
     private GameObject child;
     [TextAreaAttribute] public string inputText;
+    [SerializeField] private TMP_FontAsset myFont;
 
 
-    public void readNote()
+    public void ReadNote()
     {
         // create note
-        noteUI = Instantiate(prefab, new Vector2(0,0), Quaternion.identity);
+        noteUI = Instantiate(noteUIPrefab, new Vector2(0,0), Quaternion.identity);
         noteUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         noteUI.SetActive(true);
         
@@ -27,6 +27,7 @@ public class Note : MonoBehaviour
             // Write text if there is any
             m_TextComponent = child.GetComponent<TMP_Text>();
             m_TextComponent.text = inputText;
+            m_TextComponent.font = myFont;
         }
     }
 
