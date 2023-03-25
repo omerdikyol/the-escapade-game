@@ -69,6 +69,12 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    private void OnDisable()
+    {
+        Destroy(interactUI);
+        onWaiting = false;
+    }
+
     IEnumerator Wait()
     {
         // put 2 seconds delay between interacts to avoid spam.

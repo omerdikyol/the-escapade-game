@@ -43,4 +43,11 @@ public class CameraController : MonoBehaviour
         // min max for orthographicSize
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, 3.0f, 7.45f);
     }
+
+    public void SetTarget(Transform t)
+    {
+        smoothTime /= 100;
+        target = t;
+        smoothTime *= 100;
+    }
 }

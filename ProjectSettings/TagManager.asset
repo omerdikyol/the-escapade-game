@@ -8,6 +8,9 @@ TagManager:
   - Canvas
   - Dialogue
   - CharName
+  - Camera
+  - SceneController
+  - UI
   layers:
   - Default
   - TransparentFX

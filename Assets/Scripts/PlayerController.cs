@@ -61,6 +61,10 @@ public class PlayerController : MonoBehaviour
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
             if (Input.GetMouseButton(1)) // if right click is holding
             {
+                // Reset Momentum
+                rb.velocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+
                 transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + 120, 0)); // rotate to the mouse
             }
         }
@@ -72,7 +76,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetFloat("Speed", 0);
         }
-        else // walking
+        else if (moveDirection.y > 0) // walking Forward
         {
             animator.SetFloat("Speed", 1);
         }
@@ -82,6 +86,10 @@ public class PlayerController : MonoBehaviour
 
     public void Interact()
     {
+        // Reset Momentum
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+
         animator.SetTrigger("Interact");
         isInteracting = true;
         StartCoroutine(BacktoIdle());
@@ -94,4 +102,8 @@ public class PlayerController : MonoBehaviour
         isInteracting = false;
     }
 
+    public void SetInteracting(bool ss)
+    {
+        isInteracting = ss;
+    }
 }
