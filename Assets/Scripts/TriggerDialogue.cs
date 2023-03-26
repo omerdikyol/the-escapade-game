@@ -9,6 +9,7 @@ public class TriggerDialogue : MonoBehaviour
     private GameObject dialogueObject;
     [SerializeField] private string[] lines;
     [SerializeField]  private string charName;
+    [SerializeField] private bool isDestroyed;
 
 
     public void Dialogue()
@@ -22,6 +23,8 @@ public class TriggerDialogue : MonoBehaviour
 
         // Set CharName 
         dialogueObject.GetComponent<Dialogue>().setCharacterName(charName);
+
+        
     }
 
     public void OnTriggerEnter(Collider other)
@@ -31,6 +34,19 @@ public class TriggerDialogue : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        Destroy(gameObject);
+        if(isDestroyed)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void SetPlayersPosition()
+    {
+        // Set position == player's position
+        transform.position = GameObject.FindWithTag("Player").transform.position;
     }
 }

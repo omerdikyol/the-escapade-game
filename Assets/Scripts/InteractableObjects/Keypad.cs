@@ -12,10 +12,12 @@ public class Keypad : MonoBehaviour
     [SerializeField] private GameObject charHolder;
     [SerializeField] private string solution;
     [SerializeField] private Camera keypadCamera;
+
     // disable objects
     [SerializeField] private GameObject ui;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject mainCamera;
+
     public UnityEvent successful;
 
     private void OnEnable()

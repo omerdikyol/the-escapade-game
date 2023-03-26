@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4019614060484167802}
   - component: {fileID: 921162580183337900}
   - component: {fileID: 4555946556727822093}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: InteractCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
