@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameController gameController;
     [SerializeField] private GameObject[] slots;
     // Start is called before the first frame update
     void Start()
@@ -33,15 +34,19 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void RemoveItem(Texture item)
+    public void RemoveItem()
     {
         foreach (GameObject slot in slots)
         {
             InventorySlot slotScript = slot.GetComponent<InventorySlot>();
-            if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == item )
+            if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == gameController.GetSelectedItem() )
             {
+                Debug.Log("remove item");
+                Debug.Log(gameController.GetSelectedItem());
+                Debug.Log("remove item");
                 slotScript.isEmpty = true;
                 slotScript.SetIcon(null);
+                gameController.SetSelectedItem(null);
                 break;
             }
         }

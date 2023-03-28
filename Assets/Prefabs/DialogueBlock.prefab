@@ -116,3 +116,4 @@ MonoBehaviour:
   - Line 1
   - Line 2
   charName: Player
+  isDestroyed: 0

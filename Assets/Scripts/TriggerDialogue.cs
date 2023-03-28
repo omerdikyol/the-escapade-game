@@ -11,7 +11,6 @@ public class TriggerDialogue : MonoBehaviour
     [SerializeField]  private string charName;
     [SerializeField] private bool isDestroyed;
 
-
     public void Dialogue()
     {
         dialogueObject = Instantiate(dialoguePrefab, new Vector2(0, -250), Quaternion.identity);
@@ -48,5 +47,10 @@ public class TriggerDialogue : MonoBehaviour
     {
         // Set position == player's position
         transform.position = GameObject.FindWithTag("Player").transform.position;
+    }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
     }
 }

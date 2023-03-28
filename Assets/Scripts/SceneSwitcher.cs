@@ -26,4 +26,17 @@ public class SceneSwitcher : MonoBehaviour
 
         SceneManager.LoadScene(levelName);
     }
+
+
+    public void NextSceneManually()
+    {
+        StartCoroutine(ManuallyLoadLevel(sceneName));
+    }
+
+    IEnumerator ManuallyLoadLevel(string levelName)
+    {
+        yield return new WaitForSeconds(transitionTime/2);
+
+        SceneManager.LoadScene(levelName);
+    }
 }

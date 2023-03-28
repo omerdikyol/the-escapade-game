@@ -82,4 +82,9 @@ public class Interactable : MonoBehaviour
         yield return new WaitForSeconds(2); //Wait 2 second
         onWaiting = false;
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }

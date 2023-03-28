@@ -24,4 +24,9 @@ public class Collectible : MonoBehaviour
     {
         return icon;
     }
+
+    public void Destroy()
+    {
+        Destroy(gameObject);
+    }
 }
