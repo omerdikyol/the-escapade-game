@@ -1138,6 +1138,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3323464554437747259, guid: c1858e232b765e6418f101447c379afe,
         type: 3}
+      propertyPath: myFont
+      value: 
+      objectReference: {fileID: 11400000, guid: 11f612c63529b8242a228934e131d8c5,
+        type: 2}
+    - target: {fileID: 3323464554437747259, guid: c1858e232b765e6418f101447c379afe,
+        type: 3}
       propertyPath: prefab
       value: 
       objectReference: {fileID: 3066602393398252422, guid: 9e903b481c3dc7c47823af82a51e8c5e,
@@ -2362,6 +2368,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 798415020105688699, guid: 33420a07e82989341b3afddee614f07c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.00012207031
+      objectReference: {fileID: 0}
     - target: {fileID: 798415021790663403, guid: 33420a07e82989341b3afddee614f07c,
         type: 3}
       propertyPath: m_RootOrder
@@ -2945,6 +2956,7 @@ MonoBehaviour:
   smoothTime: 0.3
   mainCamera: {fileID: 640652700}
   animationClip: {fileID: 7400000, guid: 9172a344964298e4d943bfd552710d8e, type: 2}
+  animationLength: 0
 --- !u!1001 &8613386891098237317
 PrefabInstance:
   m_ObjectHideFlags: 0

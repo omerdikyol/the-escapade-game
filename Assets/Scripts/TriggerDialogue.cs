@@ -8,7 +8,6 @@ public class TriggerDialogue : MonoBehaviour
     [SerializeField] private GameObject dialoguePrefab;
     private GameObject dialogueObject;
     [SerializeField] private string[] lines;
-    [SerializeField]  private string charName;
     [SerializeField] private bool isDestroyed;
 
     public void Dialogue()
@@ -19,11 +18,6 @@ public class TriggerDialogue : MonoBehaviour
 
         // Set Lines
         dialogueObject.GetComponent<Dialogue>().setLines(lines);
-
-        // Set CharName 
-        dialogueObject.GetComponent<Dialogue>().setCharacterName(charName);
-
-        
     }
 
     public void OnTriggerEnter(Collider other)

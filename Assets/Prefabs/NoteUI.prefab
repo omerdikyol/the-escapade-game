@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 3066602393398252422}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.56, y: 1.56, z: 1.56}
+  m_LocalScale: {x: 2.05, y: 2.05, z: 2.05}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8308343081559369696}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: aa1b0193062c876409738688ebc37102, type: 3}
+  m_Texture: {fileID: 2800000, guid: 1cf682f575cf8a549988bde748177e9f, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -110,7 +110,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -332, y: -34}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5918964008321992914
@@ -143,15 +143,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: F - Close
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 11f612c63529b8242a228934e131d8c5, type: 2}
+  m_sharedMaterial: {fileID: 473861098188746533, guid: 11f612c63529b8242a228934e131d8c5,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 989855743
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.22745098}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -168,13 +169,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 2
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -282,9 +283,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.016418457, y: 0.001953125}
-  m_SizeDelta: {x: 200, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -76.407, y: -33.5294}
+  m_SizeDelta: {x: 163.5682, y: 42.6691}
+  m_Pivot: {x: 0, y: 0}
 --- !u!222 &6735297619151383590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -313,10 +314,28 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\r\nmolestiae
+    quas vel sint commodi repudiandae consequuntur voluptatum laborum\r\nnumquam
+    blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\r\noptio,
+    eaque rerum! Provident similique accusantium nemo autem. Veritatis\r\nobcaecati
+    tenetur iure eius earum ut molestias architecto voluptate aliquam\r\nnihil, eveniet
+    aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\r\ntenetur error,
+    harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\r\nquia. Quo neque
+    error repudiandae fuga? Ipsa laudantium molestias eos \r\nsapiente officiis modi
+    at sunt excepturi expedita sint? Sed quibusdam\r\nrecusandae alias error harum
+    maxime adipisci amet laborum. Perspiciatis \r\nminima nesciunt dolorem! Officiis
+    iure rerum voluptates a cumque velit \r\nquibusdam sed amet tempora. Sit laborum
+    ab, eius fugit doloribus tenetur \r\nfugiat, temporibus enim commodi iusto libero
+    magni deleniti quod quam \r\nconsequuntur! Commodi minima excepturi repudiandae
+    velit hic maxime\r\ndoloremque. Quaerat provident commodi consectetur veniam
+    similique ad \r\nearum omnis ipsum saepe, voluptas, hic voluptates pariatur est
+    explicabo \r\nfugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores
+    labore \r\nsuscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab
+    laudantium\r\nmodi minima sunt esse temporibus sint culpa, recusandae aliquam"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d7090c90b6067194abc198ee595a6168, type: 2}
+  m_sharedMaterial: {fileID: 1422692976842594519, guid: d7090c90b6067194abc198ee595a6168,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -340,15 +359,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 18
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -357,8 +376,8 @@ MonoBehaviour:
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
   m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
+  m_wordWrappingRatios: 0.591
+  m_overflowMode: 1
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1

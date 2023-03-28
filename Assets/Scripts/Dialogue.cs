@@ -6,8 +6,6 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {
     private TMP_Text dialogue;
-    private TMP_Text charName;
-    [SerializeField] private string characterName;
     public string[] lines;
     public float textSpeed;
 
@@ -17,9 +15,7 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         dialogue = gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
-        charName = gameObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>();
         dialogue.text = string.Empty;
-        charName.text = characterName;
         StartDialogue();
     }
 
@@ -73,11 +69,6 @@ public class Dialogue : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
-    }
-
-    public void setCharacterName(string newName)
-    {
-        characterName = newName;
     }
 
     public void setLines(string[] newLines)

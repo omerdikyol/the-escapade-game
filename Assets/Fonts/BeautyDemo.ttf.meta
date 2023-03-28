@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1ac3e7a0464b21a4db0dfcdbf06af0f1
+guid: 96e0fbb1597847c459397211986a6e07
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Simple Handmade
+  - Beauty
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
