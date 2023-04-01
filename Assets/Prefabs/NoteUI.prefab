@@ -314,24 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\r\nmolestiae
-    quas vel sint commodi repudiandae consequuntur voluptatum laborum\r\nnumquam
-    blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\r\noptio,
-    eaque rerum! Provident similique accusantium nemo autem. Veritatis\r\nobcaecati
-    tenetur iure eius earum ut molestias architecto voluptate aliquam\r\nnihil, eveniet
-    aliquid culpa officia aut! Impedit sit sunt quaerat, odit,\r\ntenetur error,
-    harum nesciunt ipsum debitis quas aliquid. Reprehenderit,\r\nquia. Quo neque
-    error repudiandae fuga? Ipsa laudantium molestias eos \r\nsapiente officiis modi
-    at sunt excepturi expedita sint? Sed quibusdam\r\nrecusandae alias error harum
-    maxime adipisci amet laborum. Perspiciatis \r\nminima nesciunt dolorem! Officiis
-    iure rerum voluptates a cumque velit \r\nquibusdam sed amet tempora. Sit laborum
-    ab, eius fugit doloribus tenetur \r\nfugiat, temporibus enim commodi iusto libero
-    magni deleniti quod quam \r\nconsequuntur! Commodi minima excepturi repudiandae
-    velit hic maxime\r\ndoloremque. Quaerat provident commodi consectetur veniam
-    similique ad \r\nearum omnis ipsum saepe, voluptas, hic voluptates pariatur est
-    explicabo \r\nfugiat, dolorum eligendi quam cupiditate excepturi mollitia maiores
-    labore \r\nsuscipit quas? Nulla, placeat. Voluptatem quaerat non architecto ab
-    laudantium\r\nmodi minima sunt esse temporibus sint culpa, recusandae aliquam"
+  m_text: Lorem ipsum
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d7090c90b6067194abc198ee595a6168, type: 2}
   m_sharedMaterial: {fileID: 1422692976842594519, guid: d7090c90b6067194abc198ee595a6168,
@@ -359,12 +342,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
+  m_fontSize: 45
   m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 45
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256

@@ -11,6 +11,7 @@ public class Note : MonoBehaviour
     private GameObject child;
     [TextAreaAttribute] public string inputText;
     [SerializeField] private TMP_FontAsset myFont;
+    [SerializeField] private AudioSource noteAudio; 
 
 
     public void ReadNote()
@@ -19,6 +20,7 @@ public class Note : MonoBehaviour
         noteUI = Instantiate(noteUIPrefab, new Vector2(0,0), Quaternion.identity);
         noteUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         noteUI.SetActive(true);
+        noteAudio.enabled = true;
         
         // Get text object
         child = noteUI.transform.GetChild(0).gameObject;
@@ -37,7 +39,7 @@ public class Note : MonoBehaviour
         {
             // Close note 
             Destroy(noteUI);
-            // Enable interaction
+            noteAudio.enabled = false;
         }
     }
 }

@@ -13,7 +13,6 @@ public class InventorySlot : MonoBehaviour
     public Texture currentTexture;
     [SerializeField] private GameObject incorrectDialogue;
     [SerializeField] private GameController gameController;
-    public GameObject testText;
 
     [SerializeField] private bool isSearching = false;
 
@@ -92,7 +91,13 @@ public class InventorySlot : MonoBehaviour
 
     public void Click()
     {
-        if(!isEmpty)
+        if (!isEmpty && isSearching)
+        {
+            isSearching = false;
+            gameController.isSearching = false;
+            gameController.SetSelectedItem(null);
+        }
+        else if(!isEmpty)
         {
             // Write function to select object and make them interact with others
             // Instead of matching objects, match texture with object !!

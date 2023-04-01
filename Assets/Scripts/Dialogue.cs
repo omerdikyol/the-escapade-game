@@ -11,9 +11,12 @@ public class Dialogue : MonoBehaviour
 
     private int index;
 
+    private AudioSource dialogEffect;
+
     // Start is called before the first frame update
     void Start()
     {
+        dialogEffect = GetComponent<AudioSource>();
         dialogue = gameObject.transform.GetChild(0).gameObject.GetComponent<TMP_Text>();
         dialogue.text = string.Empty;
         StartDialogue();
@@ -24,6 +27,7 @@ public class Dialogue : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
+            dialogEffect.enabled = false;
             if(dialogue.text == lines[index])
             {
                 NextLine();
@@ -46,12 +50,14 @@ public class Dialogue : MonoBehaviour
     {
         if (lines.Length > 0)
         {
+            dialogEffect.enabled = true;
             // Type each character 1 by 1
             foreach (char c in lines[index].ToCharArray())
             {
                 dialogue.text += c;
                 yield return new WaitForSeconds(textSpeed);
             }
+            dialogEffect.enabled = false;
         }
 
     }

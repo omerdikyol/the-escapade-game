@@ -1140,7 +1140,7 @@ PrefabInstance:
         type: 3}
       propertyPath: myFont
       value: 
-      objectReference: {fileID: 11400000, guid: 11f612c63529b8242a228934e131d8c5,
+      objectReference: {fileID: 11400000, guid: d7090c90b6067194abc198ee595a6168,
         type: 2}
     - target: {fileID: 3323464554437747259, guid: c1858e232b765e6418f101447c379afe,
         type: 3}
@@ -1151,7 +1151,7 @@ PrefabInstance:
     - target: {fileID: 3323464554437747259, guid: c1858e232b765e6418f101447c379afe,
         type: 3}
       propertyPath: inputText
-      value: "password to open the door: \n1234"
+      value: 'password to open the door: 1234'
       objectReference: {fileID: 0}
     - target: {fileID: 3323464554437747259, guid: c1858e232b765e6418f101447c379afe,
         type: 3}
@@ -2433,6 +2433,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 798415021790663404, guid: 33420a07e82989341b3afddee614f07c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33420a07e82989341b3afddee614f07c, type: 3}
 --- !u!1001 &2932996515043153332
@@ -2628,17 +2633,17 @@ PrefabInstance:
     - target: {fileID: 4538978645118579800, guid: d952c3b10408e35469d82aa4dbd2c495,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.4056604
+      value: 0.084905684
       objectReference: {fileID: 0}
     - target: {fileID: 4538978645118579800, guid: d952c3b10408e35469d82aa4dbd2c495,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.29211423
+      value: 0.061386414
       objectReference: {fileID: 0}
     - target: {fileID: 4538978645118579800, guid: d952c3b10408e35469d82aa4dbd2c495,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.24684052
+      value: 0.052465305
       objectReference: {fileID: 0}
     - target: {fileID: 4538978645118579801, guid: d952c3b10408e35469d82aa4dbd2c495,
         type: 3}

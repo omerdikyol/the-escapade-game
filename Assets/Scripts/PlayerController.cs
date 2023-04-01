@@ -15,7 +15,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     [SerializeField] private Vector3 moveDirection;
     private Rigidbody rb;
-    [SerializeField] private bool isInteracting; 
+    [SerializeField] private bool isInteracting;
+    private AudioSource walkingAudio;
  
     // Start is called before the first frame update
     void Start()
@@ -23,6 +24,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         isInteracting = false;
+        walkingAudio = GetComponent<AudioSource>();
+        Debug.Log(walkingAudio);
     }
 
     // Update is called once per frame
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(Vector3.forward * _speed * Time.deltaTime);
                 transform.position += new Vector3(0.0001f, 0f, 0f);
+                walkingAudio.enabled = true; // Enable Footstep Sound Effect
             }
             else if (Input.GetKeyUp(KeyCode.W))
             {
@@ -75,13 +79,14 @@ public class PlayerController : MonoBehaviour
         if (moveDirection == Vector3.zero) // Idle
         {
             animator.SetFloat("Speed", 0);
+            walkingAudio.enabled = false; // Disable Footstep Sound Effect
         }
         else if (moveDirection.y > 0) // walking Forward
         {
             animator.SetFloat("Speed", 1);
+            walkingAudio.enabled = true; // Enable Footstep Sound Effect
         }
-
-
+        
     }
 
     public void Interact()

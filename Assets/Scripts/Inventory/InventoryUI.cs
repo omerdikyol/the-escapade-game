@@ -7,7 +7,10 @@ public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameController gameController;
+    [SerializeField] private AudioSource equipEffect;
+    [SerializeField] private AudioSource unequipEffect;
     [SerializeField] private GameObject[] slots;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +32,7 @@ public class InventoryUI : MonoBehaviour
             {
                 slotScript.isEmpty = false;
                 slotScript.SetIcon(collectible.GetIcon());
+                equipEffect.Play();
                 break;
             }
         }
@@ -41,12 +45,11 @@ public class InventoryUI : MonoBehaviour
             InventorySlot slotScript = slot.GetComponent<InventorySlot>();
             if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == gameController.GetSelectedItem() )
             {
-                Debug.Log("remove item");
                 Debug.Log(gameController.GetSelectedItem());
-                Debug.Log("remove item");
                 slotScript.isEmpty = true;
                 slotScript.SetIcon(null);
                 gameController.SetSelectedItem(null);
+                unequipEffect.Play();
                 break;
             }
         }
