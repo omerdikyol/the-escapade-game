@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DrawOutline : MonoBehaviour
 {
-    [SerializeField] private GameController gameController;
+    private GameController gameController;
 
     // Start is called before the first frame update
     void Start()

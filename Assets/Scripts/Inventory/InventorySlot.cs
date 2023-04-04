@@ -49,7 +49,6 @@ public class InventorySlot : MonoBehaviour
                 if (Physics.Raycast(ray, out hit))
                 {
                     // Check if object is selectable, if not send an error and set isSearching false
-                    Debug.Log(hit.collider.gameObject);
                     GameObject clickedObject = hit.collider.gameObject;
                     Selectable selectable = clickedObject.GetComponent<Selectable>();
                     if(selectable != null)
@@ -60,13 +59,13 @@ public class InventorySlot : MonoBehaviour
                         }
                         else
                         {
-                            Debug.Log("selectable but not the right one");
+                            //Debug.Log("selectable but not the right one");
                             IncorrectDialogue();
                         }
                     }
                     else
                     {
-                        Debug.Log("not selectable");
+                        //Debug.Log("not selectable");
                         IncorrectDialogue();
                     }
 
@@ -75,18 +74,6 @@ public class InventorySlot : MonoBehaviour
                 }
             }
         }
-        
-        /*else
-        {
-            // Remove outlines from objects
-            Object[] GameobjectList = Resources.FindObjectsOfTypeAll(typeof(GameObject));
-
-            foreach (GameObject go in GameobjectList)
-            {
-                Outline outline = go.GetComponent<Outline>();
-                if (outline != null) Destroy(outline);
-            }
-        }*/
     }
 
     public void Click()

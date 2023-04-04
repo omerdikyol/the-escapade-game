@@ -45,7 +45,6 @@ public class InventoryUI : MonoBehaviour
             InventorySlot slotScript = slot.GetComponent<InventorySlot>();
             if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == gameController.GetSelectedItem() )
             {
-                Debug.Log(gameController.GetSelectedItem());
                 slotScript.isEmpty = true;
                 slotScript.SetIcon(null);
                 gameController.SetSelectedItem(null);

@@ -28,7 +28,6 @@ public class GameController : MonoBehaviour
 
     public Texture GetSelectedItem()
     {
-        Debug.Log(selectedItem);
         return selectedItem;
     }
 

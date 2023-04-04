@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private bool isInteracting;
     private AudioSource walkingAudio;
+
+    // Rotation
+    public float rotationAngle = 120f;
  
     // Start is called before the first frame update
     void Start()
@@ -25,7 +28,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isInteracting = false;
         walkingAudio = GetComponent<AudioSource>();
-        Debug.Log(walkingAudio);
     }
 
     // Update is called once per frame
@@ -46,21 +48,13 @@ public class PlayerController : MonoBehaviour
                 transform.position -= new Vector3(0.00001f, 0f, 0f);
             }
 
-            // Jump
-            /*
-            if ( Input.GetKeyDown(KeyCode.Space) )
-            {
-                _rb.AddForce(Vector3.up * _jumpForce);
-            }
-            */
-
             // Rotation
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 0;
             Vector3 objectPos = Camera.main.WorldToScreenPoint(transform.position);
 
-            mousePos.x = mousePos.x - objectPos.x;
-            mousePos.y = mousePos.y - objectPos.y;
+            mousePos.x -= objectPos.x;
+            mousePos.y -= objectPos.y;
 
             float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
             if (Input.GetMouseButton(1)) // if right click is holding
@@ -69,7 +63,7 @@ public class PlayerController : MonoBehaviour
                 rb.velocity = Vector3.zero;
                 rb.angularVelocity = Vector3.zero;
 
-                transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + 120, 0)); // rotate to the mouse
+                transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + rotationAngle, 0)); // rotate to the mouse
             }
         }
 
@@ -110,5 +104,15 @@ public class PlayerController : MonoBehaviour
     public void SetInteracting(bool ss)
     {
         isInteracting = ss;
+    }
+
+    public void SetRotationAngle(float angle)
+    {
+        rotationAngle = angle;
+    }
+
+    public float GetRotationAngle()
+    {
+        return rotationAngle;
     }
 }

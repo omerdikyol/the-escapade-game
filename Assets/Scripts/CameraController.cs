@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -15,12 +17,23 @@ public class CameraController : MonoBehaviour
 
     private Vector3 velocity = Vector3.zero;
 
+    // Walls
+    [SerializeField] private GameObject leftBack;
+    [SerializeField] private GameObject rightBack;
+    [SerializeField] private GameObject rightFront;
+    [SerializeField] private GameObject leftFront;
+
+    private PlayerController player;
+
+    // Rotation
+    private float timeCount = 0.3f;
 
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         targetZoom = cam.orthographicSize;
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
@@ -42,6 +55,15 @@ public class CameraController : MonoBehaviour
 
         // min max for orthographicSize
         cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, 3.0f, 7.45f);
+
+        // Change the rotation
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Quaternion newRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y - 90, transform.eulerAngles.z);
+            StartCoroutine(PerformRotation(newRotation));
+
+            SetWalls();
+        }
     }
 
     public void SetTarget(Transform t)
@@ -49,5 +71,45 @@ public class CameraController : MonoBehaviour
         smoothTime /= 100;
         target = t;
         smoothTime *= 100;
+    }
+
+    public void SetWalls()
+    {
+        // direction == 1 : T pressed, direction == -1: R pressed 
+        MeshRenderer[] walls = new MeshRenderer[]
+        {
+            leftBack.GetComponent<MeshRenderer>(),
+            rightBack.GetComponent<MeshRenderer>(),
+            rightFront.GetComponent<MeshRenderer>(),
+            leftFront.GetComponent<MeshRenderer>()
+        };
+        // Get visible walls
+        MeshRenderer[] enabledWalls = walls.Where(c => c.enabled).ToArray();
+        int firstIndex = Array.IndexOf(walls, enabledWalls[0]);
+        int secIndex = Array.IndexOf(walls, enabledWalls[1]);
+
+        walls[firstIndex].enabled = false;
+        walls[secIndex].enabled = false;
+
+        walls[(firstIndex - 1 + 4) % 4].enabled = true;
+        walls[(secIndex - 1 + 4) % 4].enabled = true;
+
+        // Change user rotation angle so rotation with mouse works correctly
+        player.SetRotationAngle((player.GetRotationAngle() - 90) % 360);
+    }
+
+    IEnumerator PerformRotation(Quaternion targetRotation)
+    {
+        float progress = 0f;
+        float speed = 0.5f;
+        while (progress < 1f)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, progress);
+            progress += Time.deltaTime * speed;
+            if (progress <= 1f)
+            {
+                yield return null;
+            }
+        }
     }
 }
