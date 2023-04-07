@@ -22,18 +22,22 @@ public class TriggerDialogue : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Dialogue();
+        if(other.gameObject.CompareTag("Player"))
+            Dialogue();
     }
 
     public void OnTriggerExit(Collider other)
     {
-        if(isDestroyed)
+        if(other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
-        }
-        else
-        {
-            gameObject.SetActive(false);
+            if (isDestroyed)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 

@@ -108,6 +108,7 @@ public class CameraController : MonoBehaviour
             progress += Time.deltaTime * speed;
             if (progress <= 1f)
             {
+                
                 yield return null;
             }
         }

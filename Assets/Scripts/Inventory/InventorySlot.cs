@@ -50,6 +50,7 @@ public class InventorySlot : MonoBehaviour
                 {
                     // Check if object is selectable, if not send an error and set isSearching false
                     GameObject clickedObject = hit.collider.gameObject;
+                    Debug.Log(clickedObject);
                     Selectable selectable = clickedObject.GetComponent<Selectable>();
                     if(selectable != null)
                     {
