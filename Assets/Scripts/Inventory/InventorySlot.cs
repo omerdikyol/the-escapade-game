@@ -29,16 +29,15 @@ public class InventorySlot : MonoBehaviour
     {
         if (isSearching)
         {
-            // Maybe you can draw outline do hovered object
             // Cast a ray from the camera to the mouse position
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             // Check if the ray intersects with any collider on 3D objects
             RaycastHit hit;
 
-            if(Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))
             {
-                if(hit.collider.gameObject.GetComponent<Outline>() == null)
+                if (hit.collider.gameObject.GetComponent<Outline>() == null)
                     hit.collider.gameObject.AddComponent<Outline>();
             }
 
@@ -52,9 +51,9 @@ public class InventorySlot : MonoBehaviour
                     GameObject clickedObject = hit.collider.gameObject;
                     Debug.Log(clickedObject);
                     Selectable selectable = clickedObject.GetComponent<Selectable>();
-                    if(selectable != null)
+                    if (selectable != null)
                     {
-                        if (selectable.validKey.Contains( gameController.GetSelectedItem() ))
+                        if (selectable.validKey.Contains(gameController.GetSelectedItem()))
                         {
                             selectable.Select();
                         }
@@ -85,7 +84,7 @@ public class InventorySlot : MonoBehaviour
             gameController.isSearching = false;
             gameController.SetSelectedItem(null);
         }
-        else if(!isEmpty)
+        else if (!isEmpty)
         {
             // Write function to select object and make them interact with others
             // Instead of matching objects, match texture with object !!

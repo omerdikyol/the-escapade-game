@@ -13,14 +13,14 @@ public class PlayerController : MonoBehaviour
 
     // Animation
     private Animator animator;
-    [SerializeField] private Vector3 moveDirection;
+    public Vector3 moveDirection;
     private Rigidbody rb;
-    [SerializeField] private bool isInteracting;
+    public bool isInteracting;
     private AudioSource walkingAudio;
 
     // Rotation
     public float rotationAngle = 120f;
- 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,22 +65,21 @@ public class PlayerController : MonoBehaviour
 
                 transform.localRotation = Quaternion.Euler(new Vector3(0, -angle + rotationAngle, 0)); // rotate to the mouse
             }
-        }
 
-        // Animation
-        moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            // Animation
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        if (moveDirection == Vector3.zero) // Idle
-        {
-            animator.SetFloat("Speed", 0);
-            walkingAudio.enabled = false; // Disable Footstep Sound Effect
+            if (moveDirection == Vector3.zero) // Idle
+            {
+                animator.SetFloat("Speed", 0);
+                walkingAudio.enabled = false; // Disable Footstep Sound Effect
+            }
+            else if (moveDirection.y > 0) // walking Forward
+            {
+                animator.SetFloat("Speed", 1);
+                walkingAudio.enabled = true; // Enable Footstep Sound Effect
+            }
         }
-        else if (moveDirection.y > 0) // walking Forward
-        {
-            animator.SetFloat("Speed", 1);
-            walkingAudio.enabled = true; // Enable Footstep Sound Effect
-        }
-        
     }
 
     public void Interact()
@@ -90,6 +89,9 @@ public class PlayerController : MonoBehaviour
         rb.angularVelocity = Vector3.zero;
 
         animator.SetTrigger("Interact");
+        animator.SetFloat("Speed", 0);
+        walkingAudio.enabled = false; // Disable Footstep Sound Effect
+
         isInteracting = true;
         StartCoroutine(BacktoIdle());
     }

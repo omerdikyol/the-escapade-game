@@ -1205,6 +1205,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: low-poly-character
       objectReference: {fileID: 0}
+    - target: {fileID: 762038974547506306, guid: 68a238cc256c69e46806f3f6f655a460,
+        type: 3}
+      propertyPath: _speed
+      value: 3.3
+      objectReference: {fileID: 0}
     - target: {fileID: 944057268857498997, guid: 68a238cc256c69e46806f3f6f655a460,
         type: 3}
       propertyPath: m_RootOrder

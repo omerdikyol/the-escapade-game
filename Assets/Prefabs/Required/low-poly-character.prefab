@@ -285,9 +285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedac730ef159774f8de8775e2496a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2.5
+  _speed: 3.3
   moveDirection: {x: 0, y: 0, z: 0}
   isInteracting: 0
+  rotationAngle: 120
 --- !u!82 &609370549771547474
 AudioSource:
   m_ObjectHideFlags: 0

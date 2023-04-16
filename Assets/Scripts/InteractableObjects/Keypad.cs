@@ -11,28 +11,14 @@ public class Keypad : MonoBehaviour
     [SerializeField] private GameObject[] buttons;
     [SerializeField] private GameObject charHolder;
     [SerializeField] private string solution;
-    [SerializeField] private Camera keypadCamera;
-
-    // disable objects
-    [SerializeField] private GameObject ui;
-    [SerializeField] private GameObject player;
-    [SerializeField] private GameObject mainCamera;
-
-    public UnityEvent successful;
+    private Camera ourCamera;
 
     private void OnEnable()
     {
         m_TextComponent = charHolder.GetComponentInChildren<TMP_Text>();
-        interactCircle = transform.Find("InteractCircle");
-        DisableObjects(keypadCamera.gameObject);
-    }
+        ourCamera = GetComponent<Minigame>().ourCamera;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        m_TextComponent = charHolder.GetComponentInChildren<TMP_Text>();
-        interactCircle = transform.Find("InteractCircle");
-        DisableObjects(keypadCamera.gameObject);
+        GetComponent<Minigame>().DisableObjects();
     }
 
     void Update()
@@ -40,15 +26,14 @@ public class Keypad : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             // Cast a ray from the camera to the mouse position
-            Ray ray = keypadCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = ourCamera.ScreenPointToRay(Input.mousePosition);
 
             // Check if the ray intersects with any collider on 3D objects
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 // If the collider belongs to this gameobject, handle the click
-                foreach(GameObject go in buttons)
-                    {
+                foreach (GameObject go in buttons)
+                {
                     if (hit.collider.gameObject == go)
                     {
                         OnClick(go.name);
@@ -59,7 +44,7 @@ public class Keypad : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            EnableObjects(keypadCamera.gameObject);
+            GetComponent<Minigame>().EnableObjects();
             this.enabled = false;
         }
     }
@@ -97,7 +82,7 @@ public class Keypad : MonoBehaviour
         if(input == solution)
         {
             m_TextComponent.text = "Correct";
-            FinishSuccess();
+            //FinishSuccess();
         }
         else
         {
@@ -105,37 +90,42 @@ public class Keypad : MonoBehaviour
         }
     }
 
-    public void DisableObjects(GameObject newCamera)
+    /*
+    public void DisableObjects()
     {
         interactCircle.gameObject.SetActive(false);
         ui.SetActive(false);
         player.GetComponent<PlayerController>().enabled = false;
-        mainCamera.SetActive(false);
-        newCamera.SetActive(true);
+        mainCamera.GetComponent<CameraController>().DisableCamera();
+        ourCamera.enabled = true;
+        mainCamera.enabled = false;
     }
 
-    public void EnableObjects(GameObject newCamera)
+    public void EnableObjects()
     {
         interactCircle.gameObject.SetActive(true);
         ui.SetActive(true);
         player.GetComponent<PlayerController>().enabled = true;
-        mainCamera.SetActive(true);
-        newCamera.SetActive(false);
+        mainCamera.GetComponent<CameraController>().EnableCamera();
+        mainCamera.enabled = true;
+        ourCamera.enabled = false;
     }
-
+    */
+    /*
     public void FinishSuccess()
     {
-        StartCoroutine(BackToScene());
+        StartCoroutine(Finish());
     }
 
-    IEnumerator BackToScene()
+    IEnumerator Finish()
     {
         yield return new WaitForSeconds(2);
 
         successful.Invoke();
-        EnableObjects(keypadCamera.gameObject);
+        GetComponent<Minigame>().EnableObjects();
         this.enabled = false;
         // Our job is finished with that object
         interactCircle.gameObject.SetActive(false);
     }
+    */
 }
