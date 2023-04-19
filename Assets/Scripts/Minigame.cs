@@ -11,9 +11,12 @@ public class Minigame : MonoBehaviour
     public UnityEvent successful;
     private Transform interactCircle;
 
+
     // do we have to hide the player and ui?
     public bool hidePlayer = true;
     public bool hideUI = true;
+
+    public bool isInteractable = true;
 
     // disable objects
     private GameObject ui;
@@ -26,13 +29,26 @@ public class Minigame : MonoBehaviour
         mainCamera = Camera.main;
         player = GameObject.FindWithTag("Player");
         ui = GameObject.FindWithTag("UI");
-        interactCircle = transform.Find("InteractCircle");
+        if (isInteractable)
+            interactCircle = transform.Find("InteractCircle");
+    }
+
+    private void OnEnable()
+    {
+        mainCamera = Camera.main;
+        player = GameObject.FindWithTag("Player");
+        ui = GameObject.FindWithTag("UI");
+        if (isInteractable)
+            interactCircle = transform.Find("InteractCircle");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (ourCamera.enabled)
+        {
+            player.GetComponent<PlayerController>().isInteracting = true;
+        }
     }
 
     public void DisableObjects()
@@ -93,6 +109,7 @@ public class Minigame : MonoBehaviour
         this.enabled = false;
         objectScript.enabled = false;
         // Our job is finished with that object
-        interactCircle.gameObject.SetActive(false);
+        if (isInteractable)
+            interactCircle.gameObject.SetActive(false);
     }
 }

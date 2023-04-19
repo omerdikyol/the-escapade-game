@@ -41,7 +41,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2887080029725699516}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2887080029725699516}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &2368874480050094692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2668,6 +2668,7 @@ GameObject:
   - component: {fileID: 6607936501391916926}
   - component: {fileID: 6607936501391916913}
   - component: {fileID: 6607936501391916912}
+  - component: {fileID: 1437738467}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Untagged
@@ -2682,7 +2683,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6607936501391916915}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.55, y: 1.49, z: 9.514}
   m_LocalScale: {x: 0.4, y: 0.63, z: 0.0580945}
   m_ConstrainProportionsScale: 0
@@ -2795,22 +2796,26 @@ MonoBehaviour:
   - {fileID: 6607936500673032869}
   charHolder: {fileID: 6607936501462103391}
   solution: 1234
+--- !u!114 &1437738467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6607936501391916915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25cc85ca1ace89d4f85513b88d99bef9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   ourCamera: {fileID: 6586787935580143398}
+  objectScript: {fileID: 6607936501391916912}
   successful:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
+  hidePlayer: 1
+  hideUI: 1
+  isInteractable: 1
 --- !u!1 &6607936501462103391
 GameObject:
   m_ObjectHideFlags: 0
@@ -3043,18 +3048,6 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Interact
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 6607936501391916912}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled

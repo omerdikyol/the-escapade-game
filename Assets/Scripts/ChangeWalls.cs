@@ -36,13 +36,13 @@ public class ChangeWalls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (room.activeSelf == false)
-            room.SetActive(true);
-        if (floor.activeSelf == true)
-            floor.SetActive(false);
-
         if (other.gameObject.CompareTag("Player"))
         {
+            if (room.activeSelf == false)
+                room.SetActive(true);
+            if (floor.activeSelf == true)
+                floor.SetActive(false);
+
             currentAngle = player.GetComponent<PlayerController>().GetRotationAngle();
             switch (currentAngle)
             {

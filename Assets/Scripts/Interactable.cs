@@ -16,16 +16,19 @@ public class Interactable : MonoBehaviour
     private TMP_Text m_TextComponent;
     public bool onWaiting = false;
 
+    private PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
         parentName = transform.parent.gameObject.name;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isInRange)
+        if (isInRange && !player.isInteracting)
         {
             // Get position of object on the screen. 
             objectPosOnCamera = Camera.main.WorldToScreenPoint(transform.position);
@@ -42,7 +45,7 @@ public class Interactable : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
             isInRange = true;
             // Create interact label, put it into canvas and set active
@@ -63,7 +66,7 @@ public class Interactable : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isInRange = false;
-            
+
             // Delete interact label
             Destroy(interactUI);
         }

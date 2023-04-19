@@ -11,6 +11,8 @@ public class SettingsMenu : MonoBehaviour
     Resolution[] resolutions;
     public TMPro.TMP_Dropdown resolutionDropdown;
 
+    public GameObject monitor;
+
     private void Start()
     {
         resolutions = Screen.resolutions;
@@ -20,7 +22,7 @@ public class SettingsMenu : MonoBehaviour
         List<string> options = new List<string>();
 
         int currentResolutionIndex = 0;
-        for(int i = 0; i < resolutions.Length; i++)
+        for (int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
@@ -34,6 +36,15 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+    }
+
+    private void OnEnable()
+    {
+        this.gameObject.SetActive(true);
+    }
+
+    void Update()
+    {
     }
 
     public void SetVolume(float volume)
@@ -55,5 +66,14 @@ public class SettingsMenu : MonoBehaviour
     {
         Resolution resolution = resolutions[resolutionIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
+    }
+
+    public void BackButton()
+    {
+        monitor.GetComponent<Monitor>().enabled = false;
+        this.gameObject.SetActive(false);
+
+        GameObject.FindWithTag("MainCamera").GetComponent<Camera>().enabled = true;
+        monitor.transform.GetChild(0).GetComponent<Camera>().enabled = false;
     }
 }

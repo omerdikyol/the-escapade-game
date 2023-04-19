@@ -37,8 +37,8 @@ public class InventorySlot : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.collider.gameObject.GetComponent<Outline>() == null)
-                    hit.collider.gameObject.AddComponent<Outline>();
+                //if (hit.collider.gameObject.GetComponent<Outline>() == null)
+                //    hit.collider.gameObject.AddComponent<Outline>();
             }
 
             if (Input.GetMouseButtonDown(0))

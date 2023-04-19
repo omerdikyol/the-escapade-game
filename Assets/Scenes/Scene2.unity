@@ -1420,6 +1420,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1826383739, guid: 9bc2c2761b421bb48ab465da152bd5e2, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 978570733}
     - target: {fileID: 1985375241169021004, guid: 9bc2c2761b421bb48ab465da152bd5e2,
         type: 3}
       propertyPath: selectInterface
@@ -3041,6 +3045,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7f21814611268c4fbc8c843798bd456, type: 3}
+--- !u!1 &978570733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7669058142204829192, guid: c7f21814611268c4fbc8c843798bd456,
+    type: 3}
+  m_PrefabInstance: {fileID: 978570732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &979087448
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,21 +6,22 @@ public class DrawOutline : MonoBehaviour
 {
     private GameController gameController;
 
-    // Start is called before the first frame update
+    /*// Start is called before the first frame update
     void Start()
     {
-        GameObject.FindWithTag("GameController");
+        GameObject gc = GameObject.FindWithTag("GameController");
+        gameController = gc.GetComponent<GameController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnMouseOver()
     {
-        if(gameController.isSearching)
+        if (gameController.isSearching)
         {
             gameObject.AddComponent<Outline>();
         }
@@ -32,5 +33,5 @@ public class DrawOutline : MonoBehaviour
         {
             Destroy(gameObject.GetComponent<Outline>());
         }
-    }
+    }*/
 }

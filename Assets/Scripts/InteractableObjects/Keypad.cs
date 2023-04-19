@@ -53,7 +53,7 @@ public class Keypad : MonoBehaviour
     {
         if (int.TryParse(name, out _)) // if string is numeric ( pressed button is number )
         {
-            if(m_TextComponent.text == "Enter" || m_TextComponent.text == "Incorrect")
+            if (m_TextComponent.text == "Enter" || m_TextComponent.text == "Incorrect")
             {
                 m_TextComponent.text = name;
             }
@@ -64,9 +64,9 @@ public class Keypad : MonoBehaviour
         }
         else // Clear or Enter
         {
-            if(name == "Clear")
+            if (name == "Clear")
             {
-                if (!string.IsNullOrEmpty(m_TextComponent.text) && int.TryParse(m_TextComponent.text, out _)) 
+                if (!string.IsNullOrEmpty(m_TextComponent.text) && int.TryParse(m_TextComponent.text, out _))
                     m_TextComponent.text = m_TextComponent.text.Remove(m_TextComponent.text.Length - 1); // remove last character
             }
             else
@@ -79,10 +79,10 @@ public class Keypad : MonoBehaviour
 
     void OnEnter(string input)
     {
-        if(input == solution)
+        if (input == solution)
         {
             m_TextComponent.text = "Correct";
-            //FinishSuccess();
+            GetComponent<Minigame>().FinishSuccess();
         }
         else
         {
