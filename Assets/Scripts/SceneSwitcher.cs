@@ -10,6 +10,13 @@ public class SceneSwitcher : MonoBehaviour
 
     public string sceneName;
 
+    public Animator fade;
+
+    private void Start()
+    {
+        fade = GameObject.Find("Fade").GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -20,10 +27,13 @@ public class SceneSwitcher : MonoBehaviour
 
     IEnumerator LoadLevel(string levelName)
     {
-        if(transition != null)
+        if (transition != null)
             transition.SetTrigger("Start");
         yield return new WaitForSeconds(transitionTime);
 
+        fade.gameObject.SetActive(true);
+        fade.Play("Fade_Start");
+        StartCoroutine(WaitFade());
         SceneManager.LoadScene(levelName);
     }
 
@@ -35,8 +45,14 @@ public class SceneSwitcher : MonoBehaviour
 
     IEnumerator ManuallyLoadLevel(string levelName)
     {
-        yield return new WaitForSeconds(transitionTime/2);
+        yield return new WaitForSeconds(transitionTime / 2);
 
         SceneManager.LoadScene(levelName);
+    }
+
+    IEnumerator WaitFade()
+    {
+        yield return new WaitForSeconds(1);
+        fade.gameObject.SetActive(false);
     }
 }

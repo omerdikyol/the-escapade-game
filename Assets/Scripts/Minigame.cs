@@ -11,11 +11,9 @@ public class Minigame : MonoBehaviour
     public UnityEvent successful;
     private Transform interactCircle;
 
-
     // do we have to hide the player and ui?
     public bool hidePlayer = true;
     public bool hideUI = true;
-
     public bool isInteractable = true;
 
     // disable objects

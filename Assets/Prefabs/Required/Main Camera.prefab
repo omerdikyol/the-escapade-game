@@ -58,7 +58,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -18.08
+  near clip plane: -40
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -66,7 +66,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 247
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -131,6 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7c629d1a398f2340b33e929242c99e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraEnabled: 1
   target: {fileID: 0}
   smoothTime: 0.1
   zoomLerpSpeed: 10
+  leftBack: {fileID: 0}
+  rightBack: {fileID: 0}
+  rightFront: {fileID: 0}
+  leftFront: {fileID: 0}

@@ -16,12 +16,13 @@ public class Note : MonoBehaviour
 
     public void ReadNote()
     {
-        Debug.Log(inputText);
+        //Debug.Log(inputText);
         // create note
         noteUI = Instantiate(noteUIPrefab, new Vector2(0, 0), Quaternion.identity);
         noteUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         noteUI.SetActive(true);
-        noteAudio.enabled = true;
+        if (noteAudio != null)
+            noteAudio.enabled = true;
 
         // Get text object
         child = noteUI.transform.GetChild(3).gameObject;
@@ -29,7 +30,7 @@ public class Note : MonoBehaviour
         {
             // Write text if there is any
             m_TextComponent = child.GetComponent<TMP_Text>();
-            Debug.Log(m_TextComponent.text);
+            //Debug.Log(m_TextComponent.text);
             m_TextComponent.text = inputText;
             //m_TextComponent.font = myFont;
         }
@@ -41,7 +42,8 @@ public class Note : MonoBehaviour
         {
             // Close note 
             Destroy(noteUI);
-            noteAudio.enabled = false;
+            if (noteAudio != null)
+                noteAudio.enabled = false;
         }
     }
 }

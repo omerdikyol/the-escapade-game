@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1985375241169021007}
   - component: {fileID: 1985375241169021004}
-  - component: {fileID: 1826383739}
   - component: {fileID: 5352424251229364977}
+  - component: {fileID: 1726078074}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -49,19 +49,7 @@ MonoBehaviour:
   selectedItem: {fileID: 0}
   isSearching: 0
   selectInterface: {fileID: 0}
---- !u!114 &1826383739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1985375241169021005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4a7ba0aec4f0a4f952ffbf963e364a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 0}
+  fade: {fileID: 0}
 --- !u!114 &5352424251229364977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,3 +62,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67c2cb891d27f84288530d3b3ec4fdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1726078074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985375241169021005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf4a7ba0aec4f0a4f952ffbf963e364a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 0}

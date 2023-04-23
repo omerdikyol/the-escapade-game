@@ -41,7 +41,6 @@ public class CameraController : MonoBehaviour
         {
             // follow the player
             Vector3 goalPos = target.position;
-            goalPos.y = transform.position.y;
             transform.position = Vector3.SmoothDamp(transform.position, goalPos, ref velocity, smoothTime);
 
             // zoom in and zoom out
@@ -85,25 +84,28 @@ public class CameraController : MonoBehaviour
 
     public void SetWalls(int angle)
     {
-        MeshRenderer[] walls = new MeshRenderer[]
+        if (leftBack != null)
         {
-            leftBack.GetComponent<MeshRenderer>(),
-            rightBack.GetComponent<MeshRenderer>(),
-            rightFront.GetComponent<MeshRenderer>(),
-            leftFront.GetComponent<MeshRenderer>()
-        };
-        // Get visible walls
-        MeshRenderer[] enabledWalls = walls.Where(c => c.enabled).ToArray();
-        int firstIndex = Array.IndexOf(walls, enabledWalls[0]);
-        int secIndex = Array.IndexOf(walls, enabledWalls[1]);
+            MeshRenderer[] walls = new MeshRenderer[]
+            {
+                leftBack.GetComponent<MeshRenderer>(),
+                rightBack.GetComponent<MeshRenderer>(),
+                rightFront.GetComponent<MeshRenderer>(),
+                leftFront.GetComponent<MeshRenderer>()
+            };
+            // Get visible walls
+            MeshRenderer[] enabledWalls = walls.Where(c => c.enabled).ToArray();
+            int firstIndex = Array.IndexOf(walls, enabledWalls[0]);
+            int secIndex = Array.IndexOf(walls, enabledWalls[1]);
 
-        walls[firstIndex].enabled = false;
-        walls[secIndex].enabled = false;
+            walls[firstIndex].enabled = false;
+            walls[secIndex].enabled = false;
 
-        int val = (angle > 0) ? 1 : -1;
+            int val = (angle > 0) ? 1 : -1;
 
-        walls[(firstIndex + val + 4) % 4].enabled = true;
-        walls[(secIndex + val + 4) % 4].enabled = true;
+            walls[(firstIndex + val + 4) % 4].enabled = true;
+            walls[(secIndex + val + 4) % 4].enabled = true;
+        }
 
         // Change user rotation angle so rotation with mouse works correctly
         float newAngle = player.GetRotationAngle() + angle;
@@ -119,7 +121,7 @@ public class CameraController : MonoBehaviour
         while (progress < 1f)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, progress);
-            progress += Time.deltaTime * speed;
+            progress += Time.fixedDeltaTime * speed;
             if (progress <= 1f)
             {
 

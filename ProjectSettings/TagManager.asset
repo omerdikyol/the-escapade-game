@@ -11,6 +11,8 @@ TagManager:
   - Camera
   - SceneController
   - UI
+  - FBack
+  - PauseMenu
   layers:
   - Default
   - TransparentFX

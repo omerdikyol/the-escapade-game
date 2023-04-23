@@ -18,6 +18,8 @@ public class ChangeWalls : MonoBehaviour
     private Camera cam;
     private float currentAngle = 0;
 
+    public bool hideWhenExit = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -80,7 +82,7 @@ public class ChangeWalls : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && hideWhenExit)
         {
             // When the player exits the trigger, the walls are set to invisible and only floor is visible in the room
             room.SetActive(false);
