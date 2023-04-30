@@ -33,7 +33,8 @@ public class Interactable : MonoBehaviour
             // Get position of object on the screen. 
             objectPosOnCamera = Camera.main.WorldToScreenPoint(transform.position);
             // Put Interact button on the object.
-            interactUI.transform.position = new Vector2(objectPosOnCamera.x, objectPosOnCamera.y + 20);
+            if (interactUI != null)
+                interactUI.transform.position = new Vector2(objectPosOnCamera.x, objectPosOnCamera.y + 20);
 
             if (Input.GetKeyDown(interactKey) && !onWaiting)
             {

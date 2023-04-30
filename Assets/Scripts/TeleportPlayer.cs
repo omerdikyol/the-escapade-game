@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TeleportPlayer : MonoBehaviour
 {
     private GameObject player;
 
     private Animator fade;
+
+    public UnityEvent events;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,7 @@ public class TeleportPlayer : MonoBehaviour
     {
         yield return new WaitForSeconds(0.95f);
         player.transform.position = this.transform.position;
+        events.Invoke();
         StartCoroutine(WaitFade2());
     }
 

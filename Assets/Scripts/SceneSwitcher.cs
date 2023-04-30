@@ -47,6 +47,9 @@ public class SceneSwitcher : MonoBehaviour
     {
         yield return new WaitForSeconds(transitionTime / 2);
 
+        fade.gameObject.SetActive(true);
+        fade.Play("Fade_Start");
+        StartCoroutine(WaitFade());
         SceneManager.LoadScene(levelName);
     }
 

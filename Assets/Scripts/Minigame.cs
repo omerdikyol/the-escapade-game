@@ -47,6 +47,12 @@ public class Minigame : MonoBehaviour
         {
             player.GetComponent<PlayerController>().isInteracting = true;
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            EnableObjects();
+            objectScript.enabled = false;
+        }
     }
 
     public void DisableObjects()
@@ -60,16 +66,19 @@ public class Minigame : MonoBehaviour
 
         if (hideUI)
             ui.SetActive(false);
+        else
+        {
+            // Remove all interact labels
+            GameObject[] interactLabels = GameObject.FindGameObjectsWithTag("InteractLabel");
+            foreach (GameObject label in interactLabels)
+            {
+                Destroy(label);
+            }
+        }
 
         // make player invisible
         if (hidePlayer)
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
-
-        // Get canvas and add text TMP to it
-        GameObject canvas = GameObject.Find("Canvas");
-        GameObject text = Instantiate(Resources.Load("Prefabs/Text") as GameObject);
-        text.transform.SetParent(canvas.transform, false);
-        text.GetComponent<TextMeshProUGUI>().text = "You fixed the computer!";
     }
 
     public void EnableObjects()
@@ -86,11 +95,6 @@ public class Minigame : MonoBehaviour
         // make player visible
         if (hidePlayer)
             player.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
-
-        // Get canvas and remove text TMP from it
-        GameObject canvas = GameObject.Find("Canvas");
-        GameObject text = GameObject.Find("Text");
-        Destroy(text);
     }
 
     public void FinishSuccess()

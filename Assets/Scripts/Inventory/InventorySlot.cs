@@ -29,8 +29,20 @@ public class InventorySlot : MonoBehaviour
     {
         if (isSearching)
         {
+            // Find valid camera to cast ray from
+            Camera[] cameras = FindObjectsOfType<Camera>();
+            Camera validCamera = null;
+            foreach (Camera camera in cameras)
+            {
+                if (camera.GetComponent<Camera>().enabled)
+                {
+                    validCamera = camera;
+                    break;
+                }
+            }
+
             // Cast a ray from the camera to the mouse position
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Ray ray = validCamera.ScreenPointToRay(Input.mousePosition);
 
             // Check if the ray intersects with any collider on 3D objects
             RaycastHit hit;
@@ -43,7 +55,8 @@ public class InventorySlot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Debug.Log(Camera.current);
+                ray = validCamera.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out hit))
                 {

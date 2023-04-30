@@ -12,7 +12,9 @@ TagManager:
   - SceneController
   - UI
   - FBack
-  - PauseMenu
+  - Pause Menu
+  - Inventory
+  - InteractLabel
   layers:
   - Default
   - TransparentFX
