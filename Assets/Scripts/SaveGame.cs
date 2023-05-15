@@ -8,9 +8,15 @@ public class SaveGame : MonoBehaviour
 {
     private string sceneName;
 
+    public static List<string> unlockedLevels;
+
     void Awake()
     {
         sceneName = SceneManager.GetActiveScene().name;
+        if (!unlockedLevels.Contains(sceneName))
+        {
+            unlockedLevels.Add(sceneName);
+        }
         SaveToJson();
     }
 

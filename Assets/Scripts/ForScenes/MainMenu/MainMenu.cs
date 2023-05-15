@@ -61,7 +61,7 @@ public class MainMenu : MonoBehaviour
         string sceneName = GetComponent<LoadGame>().GetSceneName();
         Debug.Log("Loaded scene name: " + sceneName);
         if (sceneName == null)
-            sceneName = "Scene1";
+            sceneName = "Tutorial";
 
         SceneManager.LoadScene(sceneName);
     }

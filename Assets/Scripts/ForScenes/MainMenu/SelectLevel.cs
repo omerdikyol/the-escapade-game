@@ -13,7 +13,7 @@ public class SelectLevel : MonoBehaviour
 
     public void SelectButton(int num)
     {
-        SceneManager.LoadScene("Scene" + num);
+        SceneManager.LoadScene(num);
     }
 
     public void BackButton()

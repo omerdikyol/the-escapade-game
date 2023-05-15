@@ -10,9 +10,10 @@ public class Interactable : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     private GameObject interactUI;
-    public UnityEvent interactAction;
     private Vector3 objectPosOnCamera;
     private string parentName;
+    [SerializeField] private string interactName;
+    public UnityEvent interactAction;
     private TMP_Text m_TextComponent;
     public bool onWaiting = false;
 
@@ -56,7 +57,7 @@ public class Interactable : MonoBehaviour
 
             // add object name to label
             m_TextComponent = interactUI.GetComponent<TMP_Text>();
-            m_TextComponent.text = parentName + "\n" + m_TextComponent.text;
+            m_TextComponent.text = (interactName == "") ? parentName + "\n" + m_TextComponent.text : interactName + "\n" + m_TextComponent.text;
 
 
         }
