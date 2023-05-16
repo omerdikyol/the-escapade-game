@@ -29,16 +29,29 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (isInRange && !player.isInteracting)
         {
-            // Get position of object on the screen. 
-            objectPosOnCamera = Camera.main.WorldToScreenPoint(transform.position);
+            // Get active camera and convert world position to screen position.
+            Camera[] cameras = Camera.allCameras;
+            foreach (Camera cam in cameras)
+            {
+                if (cam.isActiveAndEnabled)
+                {
+                    // Get position of object on the screen. 
+                    objectPosOnCamera = cam.WorldToScreenPoint(transform.position);
+                    break;
+                }
+            }
+
             // Put Interact button on the object.
             if (interactUI != null)
                 interactUI.transform.position = new Vector2(objectPosOnCamera.x, objectPosOnCamera.y + 20);
 
             if (Input.GetKeyDown(interactKey) && !onWaiting)
             {
+                if (player.isThirdPerson)
+                    player.GetComponent<PlayerController>().Interact();
                 interactAction.Invoke(); // call given functions on UnityEvent object
                 StartCoroutine(Wait());
             }
@@ -91,5 +104,11 @@ public class Interactable : MonoBehaviour
     public void Destroy()
     {
         Destroy(gameObject);
+    }
+
+    public void ResetState()
+    {
+        player.isInteracting = false;
+        this.isInRange = false;
     }
 }

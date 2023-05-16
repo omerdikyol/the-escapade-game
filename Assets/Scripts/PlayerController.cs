@@ -7,6 +7,13 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //! FIRST PERSON TESTING
+    public bool isThirdPerson = true;
+
+    Vector3 velocity;
+    //! FIRST PERSON TESTING
+
     // Movement
     [SerializeField] private float _speed = 1;
     //[SerializeField] private float _jumpForce = 200;
@@ -33,7 +40,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isThirdPerson)
+        {
+            ThirdPersonMovement();
+        }
+        else
+        {
+            FirstPersonMovement();
+        }
+    }
 
+    private void ThirdPersonMovement()
+    {
         if (!isInteracting)
         {
             // Movement of the player ( only forward )
@@ -82,6 +100,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FirstPersonMovement()
+    {
+        CharacterController controller = GetComponent<CharacterController>();
+        float baseSpeed = 4f;
+        float gravity = -9.81f;
+        float jumpHeight = 3f;
+        float sprintSpeed = 3f;
+        float speedBoost = 1f;
+
+        if (controller.isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
+
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+
+        if (Input.GetButton("Fire3"))
+            speedBoost = sprintSpeed;
+        else
+            speedBoost = 1f;
+
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * (baseSpeed + speedBoost) * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && controller.isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+    }
     public void Interact()
     {
         // Reset Momentum

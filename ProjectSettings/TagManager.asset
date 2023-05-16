@@ -15,6 +15,7 @@ TagManager:
   - Pause Menu
   - Inventory
   - InteractLabel
+  - Stairs
   layers:
   - Default
   - TransparentFX

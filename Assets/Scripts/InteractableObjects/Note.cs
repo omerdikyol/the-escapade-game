@@ -10,7 +10,6 @@ public class Note : MonoBehaviour
     private TMP_Text m_TextComponent;
     private GameObject child;
     [TextAreaAttribute] public string inputText;
-    [SerializeField] private TMP_FontAsset myFont;
     [SerializeField] private AudioSource noteAudio;
 
 

@@ -21,6 +21,14 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        // if player is first person. cursor will be locked. so unlock it.
+        if (!player.isThirdPerson)
+        {
+            Debug.Log("Cursor unlocked");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         Time.timeScale = 0f;
         pauseMenuUI.SetActive(true);
         AudioListener.volume = 0f;
@@ -29,6 +37,14 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        // if player is first person. cursor must be locked. so lock it.
+        if (!player.isThirdPerson)
+        {
+            Debug.Log("Cursor locked");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
         pauseMenuUI.SetActive(false);
         AudioListener.volume = 1f;
         player.enabled = true;
@@ -44,6 +60,13 @@ public class PauseMenu : MonoBehaviour
 
     public void BackToMenu()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        // if player is first person. cursor will be locked. so unlock it.
+        if (!player.isThirdPerson)
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
         Time.timeScale = 1f;
         AudioListener.volume = 1f;
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
