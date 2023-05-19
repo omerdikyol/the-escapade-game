@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     public bool isInteracting;
     private AudioSource walkingAudio;
 
+    private float audioPitch;
+
     // Rotation
     public float rotationAngle = 120f;
 
@@ -35,6 +37,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         isInteracting = false;
         walkingAudio = GetComponent<AudioSource>();
+        audioPitch = walkingAudio.pitch;
     }
 
     // Update is called once per frame
@@ -105,8 +108,8 @@ public class PlayerController : MonoBehaviour
         CharacterController controller = GetComponent<CharacterController>();
         float baseSpeed = 4f;
         float gravity = -9.81f;
-        float jumpHeight = 3f;
-        float sprintSpeed = 3f;
+        float jumpHeight = 2f;
+        float sprintSpeed = 4f;
         float speedBoost = 1f;
 
         if (controller.isGrounded && velocity.y < 0)
@@ -118,9 +121,15 @@ public class PlayerController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         if (Input.GetButton("Fire3"))
+        {
             speedBoost = sprintSpeed;
+            walkingAudio.pitch = audioPitch + 0.16f; // Make the sound effect faster
+        }
         else
+        {
             speedBoost = 1f;
+            walkingAudio.pitch = audioPitch;
+        }
 
 
         Vector3 move = transform.right * x + transform.forward * z;
@@ -135,6 +144,17 @@ public class PlayerController : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        // Enable Footstep Sound Effect when moving
+        if ((x != 0 || z != 0) && controller.isGrounded)
+        {
+
+            walkingAudio.enabled = true;
+        }
+        else
+        {
+            walkingAudio.enabled = false;
+        }
     }
     public void Interact()
     {

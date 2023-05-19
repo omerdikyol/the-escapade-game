@@ -10,6 +10,8 @@ public class GameController : MonoBehaviour
 
     public Animator fade;
 
+    public bool firstPCursorEnabled = false;
+
     private void Awake()
     {
         fade = GameObject.Find("Fade").GetComponent<Animator>();
@@ -45,6 +47,24 @@ public class GameController : MonoBehaviour
             else
             {
                 GetComponent<PauseMenu>().ResumeGame();
+            }
+        }
+
+        // If player is first person, clicking ctrl will make the cursor appear
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            PlayerController player = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+            if (!player.isThirdPerson && Cursor.lockState == CursorLockMode.Locked)
+            {
+                firstPCursorEnabled = true;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+            }
+            else if (!player.isThirdPerson && Cursor.lockState == CursorLockMode.None)
+            {
+                firstPCursorEnabled = false;
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
         }
     }

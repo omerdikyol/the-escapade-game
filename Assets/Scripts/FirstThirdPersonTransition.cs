@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -16,10 +17,13 @@ public class FirstThirdPersonTransition : MonoBehaviour
 
     public UnityEvent events;
 
+    public GameObject firstPersonUI;
+
     // Start is called before the first frame update
     void Start()
     {
         fade = GameObject.Find("Fade").GetComponent<Animator>();
+        firstPersonUI = GameObject.Find("FirstPersonControls");
     }
 
     // Update is called once per frame
@@ -47,21 +51,18 @@ public class FirstThirdPersonTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(0.95f);
         RemoveUIText();
-
-        Debug.Log("First to Third person");
-        Debug.Log("flag1");
         thirdPCam.SetActive(true);
-        Debug.Log("flag2");
         thirdPPlayer.SetActive(true);
         thirdPPlayer.GetComponent<PlayerController>().isInteracting = false;
-        Debug.Log("flag3");
+
         firstPPlayer.SetActive(false);
+        firstPersonUI.GetComponent<TextMeshProUGUI>().enabled = false;
         // Enable Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        Debug.Log("flag4");
+
         events.Invoke();
-        Debug.Log("flag9");
+
         StartCoroutine(WaitFade2());
 
     }
@@ -70,21 +71,19 @@ public class FirstThirdPersonTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(0.95f);
         RemoveUIText();
-        // Third to First person
-        Debug.Log("Third to First person");
         firstPPlayer.SetActive(true);
-        Debug.Log("flag5");
+        firstPersonUI.GetComponent<TextMeshProUGUI>().enabled = true;
+
         thirdPPlayer.GetComponent<PlayerController>().isInteracting = false;
         thirdPPlayer.SetActive(false);
-        Debug.Log("flag6");
         thirdPCam.SetActive(false);
-        Debug.Log("flag7");
+
         // Disable Cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        Debug.Log("flag8");
+
         events.Invoke();
-        Debug.Log("flag9");
+
         StartCoroutine(WaitFade2());
 
     }
