@@ -213,16 +213,22 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
---- !u!1 &71870212 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
+--- !u!114 &71870213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
     type: 3}
   m_PrefabInstance: {fileID: 71870210}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41675ddf1fd077f408765e32f3339b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &74153138
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,7 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 980936286}
   transitionTime: 1
-  sceneName: Scene3
+  sceneName: Level3
   fade: {fileID: 978570734}
 --- !u!65 &74153140
 BoxCollider:
@@ -431,7 +437,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -447,7 +453,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 71870212}
+      objectReference: {fileID: 71870213}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
@@ -466,7 +472,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: Dialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -476,7 +482,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: TriggerDialogue, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -2358,7 +2364,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
@@ -2460,7 +2466,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991721, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
@@ -2560,7 +2566,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
@@ -2570,19 +2576,13 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 854148040}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &854148042 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
-    type: 3}
-  m_PrefabInstance: {fileID: 854148040}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &854148043 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
     type: 3}
   m_PrefabInstance: {fileID: 854148040}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 854148042}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41675ddf1fd077f408765e32f3339b8c, type: 3}
@@ -2603,7 +2603,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -2639,7 +2639,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1818181536}
+      objectReference: {fileID: 1818181537}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -2703,7 +2703,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: Dialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -2738,7 +2738,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: TriggerDialogue, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -3484,23 +3484,17 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
---- !u!1 &1079713873 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
-    type: 3}
-  m_PrefabInstance: {fileID: 1079713872}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1079713874 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
     type: 3}
   m_PrefabInstance: {fileID: 1079713872}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1079713873}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41675ddf1fd077f408765e32f3339b8c, type: 3}
@@ -4402,7 +4396,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
@@ -5082,19 +5076,13 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659579198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1673560681 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
-    type: 3}
-  m_PrefabInstance: {fileID: 769017821}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1673560682 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
     type: 3}
   m_PrefabInstance: {fileID: 769017821}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1673560681}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 41675ddf1fd077f408765e32f3339b8c, type: 3}
@@ -5120,7 +5108,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -5146,7 +5134,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 854148042}
+      objectReference: {fileID: 854148043}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[3].m_Target
@@ -5190,7 +5178,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: Dialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -5215,7 +5203,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: TriggerDialogue, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -5778,7 +5766,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
@@ -5788,12 +5776,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1818181534}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1818181536 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
+--- !u!114 &1818181537 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8613386890545991722, guid: f4eae4d3e4106b0479b2f348b251390e,
     type: 3}
   m_PrefabInstance: {fileID: 1818181534}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41675ddf1fd077f408765e32f3339b8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1819864312
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5999,21 +5993,9 @@ MonoBehaviour:
   unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1079713873}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1079713874}
         m_TargetAssemblyTypeName: TriggerDialogue, Assembly-CSharp
-        m_MethodName: SetPlayersPosition
+        m_MethodName: Dialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6130,7 +6112,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -6156,7 +6138,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1673560681}
+      objectReference: {fileID: 1673560682}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
@@ -6200,7 +6182,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: SetActive
+      value: Dialogue
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -6225,7 +6207,7 @@ PrefabInstance:
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: TriggerDialogue, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4555946556727822093, guid: ec1a191bbf33e4c4395e535251d0056e,
         type: 3}
@@ -7036,7 +7018,7 @@ PrefabInstance:
     - target: {fileID: 8613386890545991727, guid: f4eae4d3e4106b0479b2f348b251390e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4eae4d3e4106b0479b2f348b251390e, type: 3}
@@ -8618,6 +8600,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: IncorrectDialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 1367430141813626129, guid: e4878b0601a3bed468080df8b35b8dc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1367430141813626133, guid: e4878b0601a3bed468080df8b35b8dc0,
         type: 3}

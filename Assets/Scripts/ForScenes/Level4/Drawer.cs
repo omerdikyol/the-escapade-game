@@ -44,7 +44,6 @@ public class Drawer : MonoBehaviour
             // Check if the ray intersects with any collider on 3D objects
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log(hit.collider.gameObject.name);
                 if (hit.collider.gameObject.name == "drawer1")
                 {
                     if (drawer1Open == false)
@@ -56,7 +55,6 @@ public class Drawer : MonoBehaviour
                     else
                     {
                         myAnimator.Play("close1");
-                        hit.collider.gameObject.transform.Translate(0, 0, -0.5f);
                         drawer1Open = false;
                     }
                 }
@@ -70,7 +68,6 @@ public class Drawer : MonoBehaviour
                     else
                     {
                         myAnimator.Play("close2");
-                        hit.collider.gameObject.transform.Translate(0, 0, -0.5f);
                         drawer2Open = false;
                     }
                 }
@@ -89,7 +86,6 @@ public class Drawer : MonoBehaviour
                     else
                     {
                         myAnimator.Play("close3");
-                        hit.collider.gameObject.transform.Translate(0, 0, -0.5f);
                         drawer3Open = false;
                     }
                 }

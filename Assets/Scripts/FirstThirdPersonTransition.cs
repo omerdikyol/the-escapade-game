@@ -17,13 +17,18 @@ public class FirstThirdPersonTransition : MonoBehaviour
 
     public UnityEvent events;
 
-    public GameObject firstPersonUI;
+    private GameObject firstPersonUI;
+
+    public GameObject firstToThirdTeleporter;
+
+    public GameObject thirdToFirstTeleporter;
 
     // Start is called before the first frame update
     void Start()
     {
         fade = GameObject.Find("Fade").GetComponent<Animator>();
         firstPersonUI = GameObject.Find("FirstPersonControls");
+        thirdPCam = GameObject.FindWithTag("MainCamera");
     }
 
     // Update is called once per frame
@@ -51,7 +56,11 @@ public class FirstThirdPersonTransition : MonoBehaviour
     {
         yield return new WaitForSeconds(0.95f);
         RemoveUIText();
-        thirdPCam.SetActive(true);
+
+        thirdPCam.GetComponent<Camera>().enabled = true;
+        thirdPCam.GetComponent<CameraController>().enabled = true;
+        thirdPCam.GetComponent<AudioListener>().enabled = true;
+
         thirdPPlayer.SetActive(true);
         thirdPPlayer.GetComponent<PlayerController>().isInteracting = false;
 
@@ -60,6 +69,12 @@ public class FirstThirdPersonTransition : MonoBehaviour
         // Enable Cursor
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        // Teleport the thirdPPlayer to the teleporter's position
+        if (firstToThirdTeleporter != null)
+        {
+            thirdPPlayer.transform.position = firstToThirdTeleporter.transform.position;
+        }
 
         events.Invoke();
 
@@ -76,11 +91,20 @@ public class FirstThirdPersonTransition : MonoBehaviour
 
         thirdPPlayer.GetComponent<PlayerController>().isInteracting = false;
         thirdPPlayer.SetActive(false);
-        thirdPCam.SetActive(false);
+
+        thirdPCam.GetComponent<Camera>().enabled = false;
+        thirdPCam.GetComponent<CameraController>().enabled = false;
+        thirdPCam.GetComponent<AudioListener>().enabled = false;
 
         // Disable Cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Teleport the firstPPlayer to the teleporter's position
+        if (thirdToFirstTeleporter != null)
+        {
+            firstPPlayer.transform.position = thirdToFirstTeleporter.transform.position;
+        }
 
         events.Invoke();
 

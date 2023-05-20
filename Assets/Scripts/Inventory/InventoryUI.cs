@@ -14,7 +14,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -25,10 +25,10 @@ public class InventoryUI : MonoBehaviour
 
     public void AddItem(Collectible collectible)
     {
-        foreach(GameObject slot in slots)
+        foreach (GameObject slot in slots)
         {
             InventorySlot slotScript = slot.GetComponent<InventorySlot>();
-            if(slotScript.isEmpty)
+            if (slotScript.isEmpty)
             {
                 slotScript.isEmpty = false;
                 slotScript.SetIcon(collectible.GetIcon());
@@ -36,6 +36,8 @@ public class InventoryUI : MonoBehaviour
                 break;
             }
         }
+
+        // No empty slots
     }
 
     public void RemoveItem()
@@ -43,7 +45,7 @@ public class InventoryUI : MonoBehaviour
         foreach (GameObject slot in slots)
         {
             InventorySlot slotScript = slot.GetComponent<InventorySlot>();
-            if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == gameController.GetSelectedItem() )
+            if (!slotScript.isEmpty && slotScript.GetComponent<RawImage>().texture == gameController.GetSelectedItem())
             {
                 slotScript.isEmpty = true;
                 slotScript.SetIcon(null);

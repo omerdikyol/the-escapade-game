@@ -55,7 +55,7 @@ public class SceneSwitcher : MonoBehaviour
 
     IEnumerator WaitFade()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
         fade.gameObject.SetActive(false);
     }
 }
