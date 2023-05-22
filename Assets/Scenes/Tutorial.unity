@@ -9103,7 +9103,7 @@ MonoBehaviour:
   dialoguePrefab: {fileID: 5681439264555684848, guid: 8e7cc11636ad95848a2766aa1f8ab0ef,
     type: 3}
   lines:
-  - Hi! Welcome to Cubica.
+  - Hi! Welcome to The Escapade 1.
   - Let's start with simple controls.
   - You can walk using key W.
   isDestroyed: 1

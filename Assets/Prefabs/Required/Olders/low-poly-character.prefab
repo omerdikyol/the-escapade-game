@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cedac730ef159774f8de8775e2496a6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isThirdPerson: 1
   _speed: 3.3
   moveDirection: {x: 0, y: 0, z: 0}
   isInteracting: 0
@@ -301,7 +302,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6ec2637f04b6be1408bb332eeb28495c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.148
+  m_Volume: 0.08
   m_Pitch: 2
   Loop: 1
   Mute: 0
