@@ -15,34 +15,38 @@ public class Note : MonoBehaviour
 
     public void ReadNote()
     {
-        //Debug.Log(inputText);
-        // create note
         noteUI = Instantiate(noteUIPrefab, new Vector2(0, 0), Quaternion.identity);
         noteUI.transform.SetParent(GameObject.FindGameObjectWithTag("Canvas").transform, false);
         noteUI.SetActive(true);
         if (noteAudio != null)
             noteAudio.enabled = true;
 
+        int childCount = noteUI.transform.childCount;
         // Get text object
-        child = noteUI.transform.GetChild(3).gameObject;
-        if (inputText != null)
+        if (childCount > 3)
         {
-            // Write text if there is any
-            m_TextComponent = child.GetComponent<TMP_Text>();
-            //Debug.Log(m_TextComponent.text);
-            m_TextComponent.text = inputText;
-            //m_TextComponent.font = myFont;
+            child = noteUI.transform.GetChild(3).gameObject;
+            if (inputText != null)
+            {
+                // Write text if there is any
+                m_TextComponent = child.GetComponent<TextMeshProUGUI>();
+                m_TextComponent.text = inputText;
+            }
         }
     }
+
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
             // Close note 
-            Destroy(noteUI);
-            if (noteAudio != null)
-                noteAudio.enabled = false;
+            if (noteUI != null)
+            {
+                Destroy(noteUI);
+                if (noteAudio != null)
+                    noteAudio.enabled = false;
+            }
         }
     }
 }

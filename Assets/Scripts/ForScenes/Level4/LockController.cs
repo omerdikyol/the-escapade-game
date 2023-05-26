@@ -43,12 +43,7 @@ public class LockController : MonoBehaviour
 
         if (result == "434432")
         {
-            Debug.Log("Success");
             GetComponent<Minigame>().FinishSuccess();
-        }
-        else
-        {
-            Debug.Log("Fail");
         }
     }
 }

@@ -40,7 +40,6 @@ public class PutBooks : MonoBehaviour
             // Check if the ray intersects with any collider on 3D objects
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Debug.Log("On Update: " + hit.collider.gameObject.name);
                 if (hit.collider.gameObject.name == "Purple Book")
                 {
                     // Add purple book to inventory
@@ -82,7 +81,6 @@ public class PutBooks : MonoBehaviour
 
     public void PutBook(int num)
     {
-        Debug.Log("PutBook: " + num);
         // get selected item's name
         string selectedItem = gameController.GetSelectedItem().name;
         string result = (selectedItem == "greenBook") ? "green" : "purple";
@@ -105,7 +103,6 @@ public class PutBooks : MonoBehaviour
                 break;
         }
 
-        Debug.Log("(PutBook) Result: " + result);
 
 
         // Put book object to the holder
@@ -117,21 +114,17 @@ public class PutBooks : MonoBehaviour
         // Disable collider of the holder
         holderObject.GetComponent<MeshCollider>().enabled = false;
 
-        Debug.Log("(PutBook) Holders:" + holder1 + " " + holder2 + " " + holder3);
-
         // Put a timeout
         StartCoroutine(Timeout());
 
         if (CheckSuccess() == 1)
         {
-            Debug.Log("Success");
             GetComponent<Minigame>().FinishSuccess();
         }
     }
 
     public void RemoveBook(int num)
     {
-        Debug.Log("RemoveBook: " + num);
         GameObject holderObject = null;
         switch (num)
         {
@@ -162,8 +155,6 @@ public class PutBooks : MonoBehaviour
 
         // Enable collider of the holder
         holderObject.GetComponent<MeshCollider>().enabled = true;
-
-        Debug.Log("(RemoveBook) Holders:" + holder1 + " " + holder2 + " " + holder3);
     }
 
     public int CheckSuccess()

@@ -18,9 +18,7 @@ public class SaveGame : MonoBehaviour
         string path = Application.dataPath + "/save.json";
         string persistentDataPath = Application.persistentDataPath + "/save.json";
 
-        Debug.Log("Save/Path: " + path);
         string json = "{\"sceneName\":\"" + sceneName + "\"}";
-        Debug.Log("Save/Json: " + json);
 
         using StreamWriter writer = new StreamWriter(path, false);
         writer.Write(json);

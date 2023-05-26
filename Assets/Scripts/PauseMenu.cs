@@ -25,7 +25,6 @@ public class PauseMenu : MonoBehaviour
         // if player is first person. cursor will be locked. so unlock it.
         if (!player.isThirdPerson)
         {
-            Debug.Log("Cursor unlocked");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
@@ -41,7 +40,6 @@ public class PauseMenu : MonoBehaviour
         // if player is first person. cursor must be locked. so lock it.
         if (!player.isThirdPerson)
         {
-            Debug.Log("Cursor locked");
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

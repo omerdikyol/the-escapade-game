@@ -55,14 +55,12 @@ public class InventorySlot : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(Camera.current);
                 ray = validCamera.ScreenPointToRay(Input.mousePosition);
 
                 if (Physics.Raycast(ray, out hit))
                 {
                     // Check if object is selectable, if not send an error and set isSearching false
                     GameObject clickedObject = hit.collider.gameObject;
-                    Debug.Log(clickedObject);
                     Selectable selectable = clickedObject.GetComponent<Selectable>();
                     if (selectable != null)
                     {
@@ -72,13 +70,11 @@ public class InventorySlot : MonoBehaviour
                         }
                         else
                         {
-                            //Debug.Log("selectable but not the right one");
                             IncorrectDialogue();
                         }
                     }
                     else
                     {
-                        //Debug.Log("not selectable");
                         IncorrectDialogue();
                     }
 

@@ -29,21 +29,21 @@ public class Interactable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Get active camera and convert world position to screen position.
+        // Find valid camera to cast ray from
+        Camera[] cameras = FindObjectsOfType<Camera>();
+        foreach (Camera camera in cameras)
+        {
+            if (camera.GetComponent<Camera>().enabled)
+            {
+                objectPosOnCamera = camera.WorldToScreenPoint(transform.position);
+                break;
+            }
+        }
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         if (isInRange && !player.isInteracting)
         {
-            // Get active camera and convert world position to screen position.
-            Camera[] cameras = Camera.allCameras;
-            foreach (Camera cam in cameras)
-            {
-                if (cam.isActiveAndEnabled)
-                {
-                    // Get position of object on the screen. 
-                    objectPosOnCamera = cam.WorldToScreenPoint(transform.position);
-                    break;
-                }
-            }
-
             // Put Interact button on the object.
             if (interactUI != null)
                 interactUI.transform.position = new Vector2(objectPosOnCamera.x, objectPosOnCamera.y + 20);

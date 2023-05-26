@@ -57,7 +57,6 @@ public class Car : MonoBehaviour
     {
         if (carBatteryIndex == 1 && sparkPlugIndex == 1 && engineIndex == 1)
         {
-            Debug.Log("Success");
             success.Invoke();
         }
     }

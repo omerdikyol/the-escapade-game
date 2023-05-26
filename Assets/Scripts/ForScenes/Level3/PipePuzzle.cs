@@ -99,33 +99,10 @@ public class PipePuzzle : MonoBehaviour
     {
         List<int> rotations = GetRotations();
 
-        /*int counter = 0;
-        foreach (int i in rotations)
-        {
-            if (counter == 1)
-            {
-                Debug.Log("i: " + i + " solution: " + solution[counter]);
-            }
-
-            // skip solution[17] because it does not matter
-            if (counter == 17)
-            {
-                counter++;
-                continue;
-            }
-
-            if (i != solution[counter])
-            {
-                return false;
-            }
-            counter++;
-        }*/
-
         for (int i = 0; i < rotations.Count; i++)
         {
             if (i == 1)
             {
-                Debug.Log("i: " + rotations[i] + " solution: " + solution[i]);
                 if (rotations[i] == 270)
                     rotations[i] = 180;
             }

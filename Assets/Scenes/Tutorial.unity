@@ -1148,7 +1148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1173879295}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.9688, y: 1.35, z: -22.78}
+  m_LocalPosition: {x: 2.9688, y: 1.05, z: -22.59}
   m_LocalScale: {x: 7.591945, y: 0.62, z: 8.22788}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1768,7 +1768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-31682
+  m_Name: pb_Mesh129958
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5566,9 +5566,9 @@ MonoBehaviour:
   interactAction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: Interact
+      - m_Target: {fileID: 8613386890093410415}
+        m_TargetAssemblyTypeName: TriggerDialogue, Assembly-CSharp
+        m_MethodName: Dialogue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8899,7 +8899,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8773170204834978483}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.8269, y: 6.35, z: -15.5}
+  m_LocalPosition: {x: 3.8269, y: 6.35, z: -15.43}
   m_LocalScale: {x: 0.42371002, y: 9.5124, z: 15.836387}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9103,7 +9103,7 @@ MonoBehaviour:
   dialoguePrefab: {fileID: 5681439264555684848, guid: 8e7cc11636ad95848a2766aa1f8ab0ef,
     type: 3}
   lines:
-  - Hi! Welcome to The Escapade 1.
+  - Hi! Welcome to The Escapade.
   - Let's start with simple controls.
   - You can walk using key W.
   isDestroyed: 1
@@ -9275,7 +9275,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &8613386890093410411
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9285,7 +9285,7 @@ BoxCollider:
   m_GameObject: {fileID: 8613386890093410410}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}

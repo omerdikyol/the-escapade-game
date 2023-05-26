@@ -10,7 +10,6 @@ public class LoadGame : MonoBehaviour
     void OnEnable()
     {
         LoadFromJson();
-        Debug.Log("Loaded scene name: " + sceneName);
     }
 
     private void LoadFromJson()
@@ -19,9 +18,6 @@ public class LoadGame : MonoBehaviour
         string json = reader.ReadToEnd();
         string[] jsonSplit = json.Split(':');
         sceneName = jsonSplit[1].Replace("\"", "").Replace("}", "");
-
-        Debug.Log("Load/Json: " + json);
-        Debug.Log("Load/SceneName: " + sceneName);
 
         reader.Close();
     }

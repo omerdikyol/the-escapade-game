@@ -48,7 +48,6 @@ public class Drawer : MonoBehaviour
                 {
                     if (drawer1Open == false)
                     {
-                        Debug.Log("open1");
                         myAnimator.Play("open1");
                         drawer1Open = true;
                     }
