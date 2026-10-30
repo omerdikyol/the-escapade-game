@@ -1,4 +1,10 @@
-# The Escapade
+<h1 align="center">The Escapade</h1>
+
+<p align="center">
+  <img alt="Unity: 2021.3.20f1" src="https://img.shields.io/badge/Unity-2021.3.20f1-black">
+  <img alt="genre: 3D puzzle adventure" src="https://img.shields.io/badge/genre-3D%20puzzle%20adventure-blue">
+  <img alt="license: MIT" src="https://img.shields.io/badge/license-MIT-green">
+</p>
 
 A 3D puzzle adventure built for a game-design course. Explore low-poly scenes, collect and use inventory items, and solve environmental puzzles and minigames to progress.
 
